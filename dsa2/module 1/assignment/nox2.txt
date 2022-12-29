@@ -1,0 +1,29 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main { 
+	static void printKPCHelper(String str, String ans) {
+		String[] codes = {".;", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
+		if(str.length() == 0){ 
+			System.out.println(ans); return; 
+		}
+
+    char ch = str.charAt(0);
+    String roq = str.substring(1);
+    for(char chcode: codes[ch - 48].toCharArray()){
+        printKPCHelper(roq, ans + chcode);
+    }
+}
+
+static void printKPC(String str) {
+    printKPCHelper(str, "");
+}
+
+public static void main(String[] args) throws Exception {
+    Scanner sc = new Scanner(System.in);
+    String str;
+    str = sc.nextLine();
+    printKPC(str);
+}
+}
